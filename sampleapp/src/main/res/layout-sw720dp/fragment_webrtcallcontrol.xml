@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/button_call_switch_camera"
+        android:background="@drawable/switch_camera"
+        android:contentDescription="@string/switch_camera"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="64dp"
+        android:layout_height="64dp"/>
+
+    <ImageButton
+        android:id="@+id/button_call_info"
+        android:background="@drawable/info"
+        android:contentDescription="@string/call_info"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        />
+
+    <TextView
+        android:id="@+id/text_call_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/button_call_info"
+        android:textSize="16sp"
+        android:textColor="#0000aa"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/contact_name_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/buttons_call_container"
+        android:textSize="24sp"
+        android:layout_margin="8dp"/>
+
+    <RelativeLayout
+        android:id="@+id/buttons_call_container"
+        android:orientation="horizontal"
+        android:layout_above="@+id/capture_format_text_call"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginBottom="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/button_call_toggle_mute"
+            android:background="@drawable/mic_on"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="20dp"/>
+
+        <ImageButton
+            android:id="@+id/button_call_disconnect"
+            android:background="@drawable/disconnect"
+            android:contentDescription="@string/disconnect_call"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_toRightOf="@id/button_call_toggle_mute"
+            android:layout_marginLeft="20dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="#F47121"
+        android:gravity="center"
+        android:id="@+id/uname_dlg_title_bar">
+
+        <ImageView
+            android:src="@drawable/ic_launcher"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/app_name"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/logo"
+            />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_toRightOf="@+id/logo"
+            android:text="WebRTCat4 Demo"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:id="@+id/textView" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/uname_dlg_prompt_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uname_dlg_title_bar"
+        android:text="Please enter your username."
+        android:layout_marginLeft="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_below="@+id/uname_dlg_prompt_text"
+        android:inputType="text"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="14dp"
+        android:hint="Username" />
+</RelativeLayout>

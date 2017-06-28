@@ -1,0 +1,12 @@
+#######################################
+### WebRTCat sample properties file ###
+#######################################
+
+# WebRTCat Signalling server URL
+WEBRTCAT4_SERVER_URL = https://webrtcat_server:port
+
+# WebRTCat User service URL
+WEBRTCAT4_USER_SERVICE_BASE_URL = https://webrtcat_user_server:port
+
+# WebRTCat Notification service URL
+WEBRTCAT_NOTIF_SERVICE_BASE_URL = https://webrtcat_notification_server:port

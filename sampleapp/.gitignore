@@ -1,0 +1,7 @@
+/build
+
+# WebRTCat environemnt properties file
+src/main/assets/webrtcat.properties
+
+# Google Services file
+google-services.json
