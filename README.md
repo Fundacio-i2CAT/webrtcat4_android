@@ -1,5 +1,8 @@
 WebRTCat4 Android Client
 ========================
+
+[ ![Download](https://api.bintray.com/packages/seg-i2cat/WebRTCat/webrtcat4_android/images/download.svg) ](https://bintray.com/seg-i2cat/WebRTCat/webrtcat4_android/_latestVersion)
+
 This project contains the WebRTCat4 client application for Android as well as
 a reusable Android module that can be included in other projects.
 
