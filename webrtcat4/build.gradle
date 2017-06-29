@@ -1,14 +1,37 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'WebRTCat'
+    bintrayName = 'webrtcat4_android'
+
+    publishedGroupId = 'net.i2cat.seg'
+    libraryName = 'webrtcat4'
+    artifact = 'webrtcat4'
+
+    libraryDescription = 'WebRTCat4 client reusable Android module.'
+
+    siteUrl = 'https://github.com/seg-i2CAT/webrtcat4_android'
+    gitUrl = 'https://github.com/seg-i2CAT/webrtcat4_android.git'
+
+    libraryVersion = '4.0.0'
+
+    developerId = 'seg-i2cat'
+    developerName = 'SEG i2CAT'
+
+    licenseName = 'MIT License'
+    licenseUrl = 'https://raw.githubusercontent.com/seg-i2CAT/webrtcat4_android/master/LICENSE'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.0'
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 20170623
-        versionName "4.0.0"
+        versionName libraryVersion
     }
     buildTypes {
         release {
@@ -22,3 +45,6 @@ dependencies {
     compile files('libs/autobanh.jar')
     compile files('libs/libjingle_peerconnection.jar')
 }
+
+apply from: '../install.gradle'
+apply from: '../bintray.gradle'
