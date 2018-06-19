@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/seg-i2CAT/webrtcat4_android'
     gitUrl = 'https://github.com/seg-i2CAT/webrtcat4_android.git'
 
-    libraryVersion = '4.0.0'
+    libraryVersion = '4.1.0'
 
     developerId = 'seg-i2cat'
     developerName = 'SEG i2CAT'
