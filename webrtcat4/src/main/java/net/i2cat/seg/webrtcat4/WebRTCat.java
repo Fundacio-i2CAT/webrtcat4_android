@@ -374,7 +374,7 @@ public class WebRTCat {
     private void updateVideoView() {
         if ((remoteRender != null) && (remoteRenderLayout != null)) {
             remoteRenderLayout.setPosition(REMOTE_X, REMOTE_Y, REMOTE_WIDTH, REMOTE_HEIGHT);
-            remoteRender.setScalingType(ScalingType.SCALE_ASPECT_FILL);
+            remoteRender.setScalingType(ScalingType.SCALE_ASPECT_FIT);
             remoteRender.setMirror(false);
         }
 
@@ -386,7 +386,7 @@ public class WebRTCat {
             } else {
                 localRenderLayout.setPosition(LOCAL_X_CONNECTING, LOCAL_Y_CONNECTING,
                         LOCAL_WIDTH_CONNECTING, LOCAL_HEIGHT_CONNECTING);
-                localRender.setScalingType(ScalingType.SCALE_ASPECT_FILL);
+                localRender.setScalingType(ScalingType.SCALE_ASPECT_FIT);
             }
             localRender.setMirror(true);
         }
