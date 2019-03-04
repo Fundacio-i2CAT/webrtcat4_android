@@ -119,14 +119,90 @@ public class RoomParametersFetcher {
           String messageType = message.getString("type");
           Log.d(TAG, "GAE->C #" + i + " : " + messageString);
           if (messageType.equals("offer")) {
-            offerSdp = new SessionDescription(
-                SessionDescription.Type.fromCanonicalForm(messageType),
-                message.getString("sdp"));
+            String messageSdp = message.getString("sdp");
+            String[] parts = messageSdp.split("\n");
+            Integer index = 0;
+
+            StringBuilder sb = new StringBuilder();
+
+            for(String frase: parts){
+              String newFrase = frase;
+              if (frase.contains("ufrag")){
+
+                newFrase = frase.replace(" ", "+");
+              }
+              if (frase.contains("ice-pwd")){
+
+                newFrase = frase.replace(" ", "+");
+              }
+              sb.append(newFrase);
+              if (index != parts.length - 1){
+                sb.append("\n");
+              }
+              index ++;
+            }
+
+
+
+            offerSdp = new SessionDescription(SessionDescription.Type.fromCanonicalForm(messageType),
+                    sb.toString());
           } else if (messageType.equals("candidate")) {
+            String messageSdp = message.getString("candidate");
+
+            final int len = messageSdp.length();
+
+            Boolean uFragFound = false;
+            StringBuilder sb = new StringBuilder();
+            Integer charactersUfrag = 0;
+
+            for (int index = 0; index < len; index++) {
+              Character character = messageSdp.charAt(index);
+              if(!uFragFound){
+                if(index > 3){
+
+                  if(character == 'g'){
+
+                    Character characterPrev = messageSdp.charAt(index - 1);
+                    if(characterPrev == 'a') {
+                      Character characterPrevPrev = messageSdp.charAt(index - 2);
+                      if(characterPrevPrev == 'r') {
+                        Character characterPrevPrevPrev = messageSdp.charAt(index - 3);
+                        if(characterPrevPrevPrev == 'f') {
+                          uFragFound = true;
+                        }
+                      }
+                    }
+                  }
+                }
+                sb.append(character);
+              }
+              else{
+                if(charactersUfrag == 0){
+                  sb.append(character);
+                }
+                else if (charactersUfrag > 0 && charactersUfrag < 5){
+                  if(character == ' '){
+                    sb.append("+");
+                  }
+                  else{
+                    sb.append(character);
+                  }
+                }
+                else{
+                  sb.append(character);
+                }
+
+                charactersUfrag++;
+              }
+
+            }
+
+
+
             IceCandidate candidate = new IceCandidate(
-                message.getString("id"),
-                message.getInt("label"),
-                message.getString("candidate"));
+                    message.getString("id"),
+                    message.getInt("label"),
+                    sb.toString());
             iceCandidates.add(candidate);
           } else {
             Log.e(TAG, "Unknown message: " + messageString);
